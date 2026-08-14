@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+<div><h2>Главная панель</h2><p class="text-muted">Добро пожаловать в систему управления пекарней</p></div>
+</div>
+<div class="row g-3 mb-4">
+{% for label,value,extra in [
+("Товары",stats.products,"+3 за месяц"),
+("Клиенты",stats.clients,"+12 за месяц"),
+("Заказы",stats.orders,"+7 за месяц"),
+("Выручка", "%.0f ₽"|format(stats.sales),"+15% за месяц")
+] %}
+<div class="col-md-3"><div class="card stat-card p-3"><div class="text-muted">{{label}}</div><div class="stat-number">{{value}}</div><small class="text-success">{{extra}}</small></div></div>
+{% endfor %}
+</div>
+<div class="card table-card p-3">
+<h5>Последние заказы</h5>
+<table class="table align-middle">
+<thead><tr><th>№ заказа</th><th>Клиент</th><th>Дата</th><th>Сумма</th><th>Статус</th></tr></thead>
+<tbody>{% for o in orders %}<tr><td>{{o.id}}</td><td>{{o.client}}</td><td>{{o.date}}</td><td>{{"%.0f"|format(o.amount)}} ₽</td><td><span class="badge text-bg-secondary">{{o.status}}</span></td></tr>{% endfor %}</tbody>
+</table>
+</div>
+{% endblock %}

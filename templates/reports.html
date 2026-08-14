@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}<h2 class="mb-4">Учёт продаж и отчётность</h2>
+<div class="row g-3">
+<div class="col-md-3"><div class="card p-4 stat-card"><small>Выручка</small><div class="stat-number">{{"%.0f"|format(total)}} ₽</div></div></div>
+<div class="col-md-3"><div class="card p-4 stat-card"><small>Количество заказов</small><div class="stat-number">{{count}}</div></div></div>
+<div class="col-md-3"><div class="card p-4 stat-card"><small>Клиенты</small><div class="stat-number">{{clients}}</div></div></div>
+<div class="col-md-3"><div class="card p-4 stat-card"><small>Товары</small><div class="stat-number">{{products}}</div></div></div>
+</div>
+<div class="card p-4 mt-4"><h5>Отчёт</h5><p class="text-muted">Раздел подготовлен для формирования аналитики продаж, клиентской базы и ассортимента.</p></div>
+{% endblock %}

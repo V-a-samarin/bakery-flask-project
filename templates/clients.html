@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="mb-3">Управление клиентами</h2>
+<div class="card p-3 mb-4"><h5>Добавить клиента</h5><form method="post" class="row g-2">
+<div class="col-md-3"><input class="form-control" name="full_name" placeholder="ФИО" required></div>
+<div class="col-md-3"><input class="form-control" name="phone" placeholder="Телефон"></div>
+<div class="col-md-3"><input class="form-control" name="email" placeholder="E-mail"></div>
+<div class="col-md-2"><button class="btn btn-warning">Добавить клиента</button></div>
+</form></div>
+<div class="card p-3"><table class="table"><thead><tr><th>№</th><th>ФИО</th><th>Телефон</th><th>E-mail</th><th>Дата</th></tr></thead>
+<tbody>{% for c in clients %}<tr><td>{{c.id}}</td><td>{{c.full_name}}</td><td>{{c.phone}}</td><td>{{c.email}}</td><td>{{c.created_at}}</td></tr>{% endfor %}</tbody></table></div>
+{% endblock %}
