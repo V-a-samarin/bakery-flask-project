@@ -1,0 +1,5 @@
+body { background: #f5f6f8; }
+.auth-card { max-width: 430px; margin: 60px auto; background: white; padding: 30px; border-radius: 16px; box-shadow: 0 8px 30px rgba(0,0,0,.08); }
+.stat-card { background: white; border-radius: 16px; padding: 24px; box-shadow: 0 5px 20px rgba(0,0,0,.06); }
+.stat-card strong { display:block; font-size: 2rem; margin-top: 8px; }
+.table { background: white; }

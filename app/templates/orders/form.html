@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Новый заказ{% endblock %}
+{% block content %}
+<h1 class="mb-4">Создание заказа</h1>
+<form method="post" class="col-lg-6">
+  <label class="form-label">Товар</label>
+  <select class="form-select mb-3" name="product_id" required>
+    {% for p in products %}<option value="{{ p.id }}">{{ p.name }} — {{ "%.2f"|format(p.price) }} ₽ (остаток {{ p.stock }})</option>{% endfor %}
+  </select>
+  <label class="form-label">Клиент</label>
+  <select class="form-select mb-3" name="client_id">
+    <option value="">Розничный клиент</option>
+    {% for c in clients %}<option value="{{ c.id }}">{{ c.name }}</option>{% endfor %}
+  </select>
+  <label class="form-label">Количество</label>
+  <input class="form-control mb-3" type="number" min="1" name="quantity" value="1" required>
+  <button class="btn btn-primary">Создать заказ</button>
+  <a class="btn btn-secondary" href="{{ url_for('orders.index') }}">Отмена</a>
+</form>
+{% endblock %}

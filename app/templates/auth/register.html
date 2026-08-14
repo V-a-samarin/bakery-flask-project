@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Регистрация{% endblock %}
+{% block content %}
+<div class="auth-card">
+  <h2 class="mb-4">Регистрация пользователя</h2>
+  <form method="post">
+    <label class="form-label">ФИО</label>
+    <input class="form-control mb-3" name="full_name" required>
+    <label class="form-label">Логин</label>
+    <input class="form-control mb-3" name="username" required>
+    <label class="form-label">Пароль</label>
+    <input class="form-control mb-3" type="password" name="password" required>
+    <button class="btn btn-success w-100">Зарегистрироваться</button>
+  </form>
+  <div class="text-center mt-3"><a href="{{ url_for('auth.login') }}">Назад ко входу</a></div>
+</div>
+{% endblock %}

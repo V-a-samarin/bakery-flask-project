@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Главная{% endblock %}
+{% block content %}
+<h1 class="mb-4">Панель администратора</h1>
+<div class="row g-4">
+  <div class="col-md-3"><div class="stat-card"><div>Товары</div><strong>{{ products }}</strong></div></div>
+  <div class="col-md-3"><div class="stat-card"><div>Клиенты</div><strong>{{ clients }}</strong></div></div>
+  <div class="col-md-3"><div class="stat-card"><div>Заказы</div><strong>{{ orders }}</strong></div></div>
+  <div class="col-md-3"><div class="stat-card"><div>Продажи</div><strong>{{ "%.2f"|format(sales) }} ₽</strong></div></div>
+</div>
+{% endblock %}

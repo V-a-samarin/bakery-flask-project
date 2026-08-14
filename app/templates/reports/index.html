@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Отчётность{% endblock %}
+{% block content %}
+<h1 class="mb-4">Учёт продаж и отчётность</h1>
+<form class="row g-2 mb-3">
+  <div class="col-auto">
+    <select name="status" class="form-select">
+      <option value="">Все статусы</option>
+      <option {% if status=="Новый" %}selected{% endif %}>Новый</option>
+      <option {% if status=="Выполнен" %}selected{% endif %}>Выполнен</option>
+    </select>
+  </div>
+  <div class="col-auto"><button class="btn btn-outline-primary">Фильтровать</button></div>
+</form>
+<div class="alert alert-info">Итого по выборке: <strong>{{ "%.2f"|format(total) }} ₽</strong></div>
+<table class="table table-striped">
+<thead><tr><th>#</th><th>Дата</th><th>Клиент</th><th>Товар</th><th>Сумма</th><th>Статус</th></tr></thead>
+<tbody>{% for o in orders %}
+<tr><td>{{ o.id }}</td><td>{{ o.created_at.strftime("%d.%m.%Y %H:%M") }}</td><td>{{ o.client.name if o.client else "Розничный клиент" }}</td><td>{{ o.product.name }}</td><td>{{ "%.2f"|format(o.total) }} ₽</td><td>{{ o.status }}</td></tr>
+{% else %}<tr><td colspan="6" class="text-center">Нет данных</td></tr>{% endfor %}</tbody>
+</table>
+{% endblock %}

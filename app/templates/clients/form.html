@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Добавление клиента{% endblock %}
+{% block content %}
+<h1 class="mb-4">Добавление клиента</h1>
+<form method="post" class="col-lg-6">
+  <input class="form-control mb-3" name="name" placeholder="ФИО" required>
+  <input class="form-control mb-3" name="phone" placeholder="Телефон">
+  <input class="form-control mb-3" type="email" name="email" placeholder="Email">
+  <button class="btn btn-primary">Сохранить</button>
+  <a class="btn btn-secondary" href="{{ url_for('clients.index') }}">Отмена</a>
+</form>
+{% endblock %}
