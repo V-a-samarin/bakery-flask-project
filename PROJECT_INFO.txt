@@ -1,0 +1,9 @@
+BAKERY FLASK PROJECT
+
+Запуск: python app.py
+Адрес: http://127.0.0.1:5000
+Демо-логин: admin
+Демо-пароль: admin123
+
+GitHub repository name: bakery-flask-project
+После создания репозитория замените ВАШ_ЛОГИН в команде remote на свой логин GitHub.
